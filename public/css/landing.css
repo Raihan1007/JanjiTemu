@@ -1,0 +1,223 @@
+/* 1. Global Variables & Reset */
+:root {
+    --primary-color: #28a745;
+    --dark-color: #333;
+    --light-gray: #f8f9fa;
+    --text-muted: #666;
+    --white: #ffffff;
+    --transition: 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--dark-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 2. Hero Section */
+.hero {
+    padding: 80px 0;
+    background: var(--white);
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.hero-content { flex: 1; }
+.hero-image { flex: 1; }
+
+.hero-image img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.badge {
+    background: #e8f5e9;
+    color: var(--primary-color);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin: 20px 0;
+}
+
+.hero-content h1 span { color: var(--primary-color); }
+
+/* 3. Buttons */
+.btn-group { display: flex; gap: 15px; margin-top: 30px; }
+
+.btn {
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+.btn-group .btn-primary {
+    background: var(--primary-color);
+    color: var(--white);
+    border-radius: 4px;
+}
+.btn-filled {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-outline {
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+/* 4. Grid Services */
+.services { padding: 80px 0; background: var(--light-gray); }
+
+.grid-services {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #eee;
+    transition: var(--transition);
+}
+
+.card:hover { transform: translateY(-10px); border-color: var(--primary-color); }
+
+.card i { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 15px; }
+
+/* 5. MOBILE RESPONSIVE (MEDIA QUERIES) */
+@media (max-width: 992px) {
+    .hero-container {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+    
+    .hero-content h1 { font-size: 2.2rem; }
+    
+    .btn-group { justify-content: center; }
+    
+    .grid-services {
+        grid-template-columns: repeat(2, 1fr); /* 2 kolom di tablet */
+    }
+}
+
+@media (max-width: 600px) {
+    .grid-services {
+        grid-template-columns: 1fr; /* 1 kolom di HP */
+    }
+    
+    .hero-content h1 { font-size: 1.8rem; }
+    
+    .btn-group {
+        flex-direction: column;
+    }
+}
+
+/* --- Cara Kerja Section --- */
+.how-it-works { padding: 80px 0; text-align: center; }
+.section-header { margin-bottom: 50px; }
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.step-item { position: relative; }
+.step-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--primary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* --- FAQ Section --- */
+.faq { padding: 80px 0; background: var(--white); }
+.faq-list { max-width: 800px; margin: 40px auto 0; }
+.faq-item { border-bottom: 1px solid #eee; }
+
+.faq-question {
+    width: 100%;
+    padding: 20px;
+    background: none;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+    color: var(--dark-color);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding: 0 20px;
+}
+
+.faq-item.active .faq-answer { max-height: 200px; padding-bottom: 20px; }
+.faq-item.active i { transform: rotate(180deg); transition: 0.3s; }
+
+/* --- CTA Section --- */
+.cta-bottom { padding: 80px 0; }
+.cta-card {
+    background: linear-gradient(135deg, #28a745, #1e7e34);
+    padding: 60px 40px;
+    border-radius: 25px;
+    color: white;
+    text-align: center;
+}
+
+.cta-card h2 { font-size: 2.2rem; margin-bottom: 20px; }
+.cta-card .btn-filled {
+    background: white;
+    color: var(--primary-color);
+    display: inline-block;
+    margin-top: 25px;
+}
+
+/* --- Responsive Tambahan --- */
+@media (max-width: 992px) {
+    .steps-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+    .steps-grid { grid-template-columns: 1fr; }
+    .cta-card h2 { font-size: 1.6rem; }
+    .cta-card { padding: 40px 20px; }
+}

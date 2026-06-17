@@ -1,0 +1,63 @@
+/* Portal Administrasi Label */
+.portal-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.portal-label .line {
+    height: 1px;
+    background: #E0E0E0;
+    flex: 1;
+    max-width: 50px;
+}
+
+.portal-label .label-text {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #999;
+    letter-spacing: 1.5px;
+}
+
+/* Alert Warning */
+.alert-warning {
+    background: #FFF9E6;
+    border: 1px solid #FFE58F;
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.alert-warning i { color: #FAAD14; font-size: 1.2rem; }
+.alert-text strong { display: block; font-size: 0.85rem; color: #856404; margin-bottom: 2px; }
+.alert-text p { font-size: 0.75rem; color: #856404; line-height: 1.4; margin: 0; }
+
+/* Form Label Flex (untuk Lupa Password) */
+.label-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.forgot-link { font-size: 0.75rem; color: var(--primary-blue); text-decoration: none; }
+.password-toggle { cursor: pointer; position: absolute; right: 12px; color: #999; }
+
+/* Footer Security */
+.security-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.75rem;
+    color: #999;
+    margin-top: 15px;
+}
+
+.switch-auth { margin-top: 30px; font-size: 0.9rem; color: #666; }
+.switch-auth a { color: var(--primary-blue); text-decoration: none; font-weight: 600; }

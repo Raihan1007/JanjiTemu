@@ -1,0 +1,119 @@
+/* --- Footer Sesuai Gambar --- */
+.main-footer {
+    background-color: #ffffff;
+    padding: 60px 0;
+    border-top: 1px solid #eee;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer-col img {
+     height: 100px; /* Kunci tinggi logo sesuai keinginanmu */
+     width: auto; 
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr 1fr;
+    gap: 40px;
+    padding: 0 20px;
+}
+
+/* Kolom 1 */
+.footer-title {
+    color: #28a745; /* Warna hijau sesuai gambar */
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.footer-desc {
+    color: #6c757d;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    color: #444;
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    color: #28a745;
+}
+
+/* Judul Kolom 2, 3, 4 */
+.footer-col h4 {
+    color: #333;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+/* List Styling */
+.contact-list, .link-list {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-list li, .link-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+}
+
+.link-list li a {
+    text-decoration: none;
+    color: #6c757d;
+    transition: 0.3s;
+}
+
+.link-list li a:hover {
+    color: #28a745;
+}
+
+/* Jam Operasional Table */
+.opening-hours {
+    width: 100%;
+    color: #6c757d;
+    font-size: 0.9rem;
+    border-collapse: collapse;
+}
+
+.opening-hours td {
+    padding: 5px 0;
+}
+
+.opening-hours .time {
+    text-align: right;
+}
+
+.closed-day {
+    color: #dc3545; /* Merah untuk hari libur sesuai gambar */
+    font-weight: 500;
+}
+
+/* Responsif */
+@media (max-width: 992px) {
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: left;
+    }
+}

@@ -1,0 +1,199 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+}
+
+nav img {
+  height: 80px; /* Kunci tinggi logo sesuai keinginanmu */
+  width: auto;  /* Biarkan lebar menyesuaikan agar tidak gepeng */
+  object-fit: contain;
+}
+
+.ss-nav .logo-nav {
+  display: flex;         
+  align-items: center;   
+  padding: 18px 28px;
+  background: #ffffff;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.logo-nav {
+    display: flex;
+    align-items: center;
+    height: 80px; /* Kunci tinggi navbar di sini */
+    padding: 0 28px; /* Gunakan padding samping saja, jangan atas-bawah */
+    background: #ffffff;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+.links {
+  margin-left: 50px;     /* MEMBERIKAN JARAK antara logo dan kumpulan link */
+}
+
+.links a {
+  margin-left: 40px;     /* Jarak antar masing-masing link */
+  color: #1FAD36;
+  text-decoration: none;
+}
+
+.links a:hover {
+  background-color: #82e20c;
+  color: #000;
+  border-radius: 4px;
+  padding: 4px 8px;
+}
+
+.auth-links {
+    font-weight: bold;
+    margin-left: auto;     /* MEMBUAT AUTH LINKS BERADA DI SEBELAH KANAN */ 
+}
+
+.auth-links a {
+    margin-left: 20px;     /* Jarak antar link auth */
+    color: #565252;
+    text-decoration: none;
+}
+
+.auth-links form .btn-logout {
+    margin-left: 20px;     /* Jarak antar tombol auth */
+    background-color: #1FAD36;
+    border: 2px solid #1FAD36;
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.auth-links .btn-secondary {
+    background-color: #1FAD36;
+    border: 2px solid #1FAD36;
+    color: #ffffff;
+    padding: 6px 12px;
+    border-radius: 4px;
+}
+
+.auth-links .btn-secondary:hover {
+    background-color: #82e20c;
+    border-color: #82e20c;
+    color: #000;
+}
+
+.logo-nav {
+    position: fixed; /* Membuat navbar tetap di atas */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999; /* Memastikan navbar di atas elemen lain */
+    transition: all 0.4s ease; /* Transisi halus saat berubah warna */
+    background: #ffffff; /* Warna awal */
+}
+
+/* Kelas ini akan muncul saat user scroll ke bawah */
+.logo-nav.scrolled {
+    background: rgba(255, 255, 255, 0.85); /* Putih transparan */
+    backdrop-filter: blur(8px); /* Efek blur kaca (opsional, sangat modern) */
+    padding: 10px 28px; /* Navbar mengecil sedikit saat discroll agar elegan */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Pastikan konten di bawahnya tidak tertutup navbar karena posisi fixed */
+body {
+    padding-top: 80px; /* Sesuaikan dengan tinggi navbar kamu */
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 120px; /* Lebih besar untuk mobile karena navbar lebih tinggi */
+    }
+}
+
+/* --- 1. TABLET (Layar Sedang: 769px sampai 1024px) --- */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .logo-nav {
+        padding: 15px 20px;
+        justify-content: space-between;
+    }
+
+    nav img {
+        width: 160px;
+    }
+
+    .links {
+        margin-left: 15px;
+        display: flex;
+        gap: 10px;
+    }
+
+    .links a {
+        margin-left: 0;
+        font-size: 0.85rem;
+    }
+
+    .auth-links {
+        margin-left: 10px;
+    }
+
+    .auth-links a {
+        margin-left: 8px;
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+}
+
+/* --- 2. MOBILE (Layar Kecil: Di bawah 768px) --- */
+@media (max-width: 768px) {
+    .logo-nav {
+        flex-direction: column; /* Menumpuk elemen ke bawah */
+        padding: 20px 10px;
+        height: auto;
+        gap: 15px; /* Memberi jarak antar tumpukan */
+    }
+
+    nav img {
+        width: 140px;
+        margin-bottom: 5px;
+    }
+
+    .links {
+        margin-left: 0; /* Hapus margin desktop */
+        display: flex;
+        flex-wrap: wrap; /* Supaya link tidak keluar layar */
+        justify-content: center;
+        gap: 8px;
+        width: 100%;
+    }
+
+    .links a {
+        margin-left: 0;
+        font-size: 13px;
+        padding: 5px 8px;
+        background: #f4f4f4; /* Memberi sedikit background agar terlihat seperti tombol */
+        border-radius: 4px;
+    }
+
+    .auth-links {
+        margin-left: 0;
+        display: flex;
+        flex-direction: row; /* Biar tombol Masuk & Buat Janji tetap sejajar kiri-kanan */
+        justify-content: center;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .auth-links a {
+        margin-left: 0;
+        flex: 1; /* Membuat kedua tombol punya lebar yang sama */
+        text-align: center;
+        font-size: 13px;
+        padding: 10px 5px;
+        white-space: nowrap;
+    }
+}
