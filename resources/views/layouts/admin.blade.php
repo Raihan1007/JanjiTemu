@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="admin-shell">
-        <aside class="sidebar">
+        <aside class="sidebar" id="sidebar">
             <div class="brand">
                 <img src="{{ asset('image/logo2.jpeg') }}" alt="">
                 <h1>JAMU BOBA</h1>
@@ -70,16 +70,18 @@
             </form>
         </aside>
 
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
         <main class="main-content">
             <header class="topbar">
-                <button class="menu-button" type="button">
+                <button class="menu-button" id="menuButton" type="button">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
 
                 <div class="welcome">
-                    <h2>Selamat datang, Admin</h2>
+                    <h2>Selamat datang, {{ auth('admin')->user()->nama ?? 'Admin' }}</h2>
                     <p>Kelola janji temu dengan mudah dan efisien.</p>
                 </div>
 
@@ -102,8 +104,6 @@
                             <strong>{{ $admin->nama ?? 'Admin' }}</strong>
                             <span>{{ $admin->email ?? '-' }}</span>
                         </div>
-
-                        <span class="chevron">&#8964;</span>
                     </div>
                 </div>
             </header>
@@ -221,6 +221,50 @@ document.addEventListener('DOMContentLoaded', function () {
                     $('#modalDetail').style.display = 'flex';
                 });
         }
+    });
+
+    // =========================
+    // SIDEBAR MOBILE
+    // =========================
+    const menuButton = document.getElementById("menuButton");
+    const sidebar = document.getElementById("sidebar");
+    const overlay = document.getElementById("sidebarOverlay");
+
+    if(menuButton){
+
+        menuButton.addEventListener("click", function(){
+
+            sidebar.classList.toggle("active");
+            overlay.classList.toggle("active");
+
+        });
+
+    }
+
+    if(overlay){
+
+        overlay.addEventListener("click", function(){
+
+            sidebar.classList.remove("active");
+            overlay.classList.remove("active");
+
+        });
+
+    }
+
+    document.querySelectorAll(".nav-item").forEach(item => {
+
+        item.addEventListener("click", function(){
+
+            if(window.innerWidth <= 860){
+
+                sidebar.classList.remove("active");
+                overlay.classList.remove("active");
+
+            }
+
+        });
+
     });
 
 });

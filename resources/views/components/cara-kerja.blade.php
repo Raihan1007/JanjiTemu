@@ -1,8 +1,7 @@
 <section class="how-it-works">
     <div class="container">
         <div id="cara-kerja" class="section-header">
-            <h2>Ringkasan Cara Kerja</h2>
-            <p>Empat langkah mudah untuk mengatur jadwal kunjungan Anda secara resmi.</p>
+            <h2>Tahapan Janji Temu</h2>
         </div>
         <div class="steps-grid">
             <div class="step-item">

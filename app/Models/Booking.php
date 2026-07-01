@@ -13,6 +13,7 @@ class Booking extends Model
         'nomor_hp',
         'instansi',  
         'layanan_id',
+        'kategori_booking_id',
         'petugas_id',
         'tanggal',
         'jam',
@@ -29,5 +30,10 @@ class Booking extends Model
     public function petugas()
     {
         return $this->belongsTo(Petugas::class);
+    }
+
+    public function kategoriBooking()
+    {
+        return $this->belongsTo(KategoriBooking::class);
     }
 }

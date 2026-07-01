@@ -6,9 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Layanan extends Model
 {
-    protected $fillable = ['nama'];
+    protected $fillable = [
+        'nama'
+    ];
 
-    protected $table = 'layanans'; 
+    protected $table = 'layanans';
 
     public function petugas()
     {

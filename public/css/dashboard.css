@@ -54,10 +54,12 @@ button {
 .sidebar {
     position: sticky;
     top: 0;
+    width: 260px;
     display: flex;
     height: 100vh;
     flex-direction: column;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
     padding: 28px 15px 20px;
     color: #fff;
     background: linear-gradient(155deg, #0b4427, #13522f 58%, #0d3f25);
@@ -294,6 +296,66 @@ button {
     margin-left: auto;
     color: #111a17;
     font-size: 22px;
+}
+
+/* ===========================
+   MOBILE SIDEBAR
+=========================== */
+
+.sidebar-overlay{
+    display:none;
+}
+
+@media (max-width:860px){
+
+    .admin-shell{
+        display:block;
+    }
+
+    .sidebar{
+        position:fixed;
+        top:0;
+        left:-280px;
+        width:260px;
+        height:100vh;
+        z-index:1001;
+        transition:left .3s ease;
+        overflow-y:auto;
+    }
+
+    .sidebar.active{
+        left:0;
+    }
+
+    .sidebar-overlay{
+        display:block;
+        position:fixed;
+        inset:0;
+        background:rgba(0,0,0,.45);
+        opacity:0;
+        visibility:hidden;
+        transition:.3s;
+        z-index:1000;
+    }
+
+    .sidebar-overlay.active{
+        opacity:1;
+        visibility:visible;
+    }
+
+    .main-content{
+        margin-left:0;
+        width:100%;
+    }
+
+    .menu-button{
+        display:grid;
+    }
+
+    .nav-menu{
+        display:flex;
+        flex-direction:column;
+    }
 }
 
 /*LAYANAN STATISTIK + CHART*/
@@ -891,15 +953,6 @@ tbody tr:hover {
 @media (max-width: 860px) {
     .admin-shell {
         display: block;
-    }
-
-    .sidebar {
-        position: relative;
-        height: auto;
-    }
-
-    .nav-menu {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .logout-form {

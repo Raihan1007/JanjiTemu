@@ -12,27 +12,29 @@ class LayananSeeder extends Seeder
         $data = [
 
             [
-                'nama' => 'Layanan Pengelolaan Kekayaan Negara'
+                'nama' => 'Lelang'
             ],
 
             [
-                'nama' => 'Layanan Penilaian'
+                'nama' => 'Penilaian'
             ],
 
             [
-                'nama' => 'Layanan Piutang Negara'
+                'nama' => 'Piutang Negara'
             ],
 
             [
-                'nama' => 'Layanan Lelang'
-            ]
+                'nama' => 'Kekayaan Negara'
+            ],
 
         ];
 
         foreach ($data as $d) {
 
             Layanan::updateOrCreate(
-                ['nama' => $d['nama']],
+                [
+                    'nama' => $d['nama']
+                ],
                 $d
             );
 

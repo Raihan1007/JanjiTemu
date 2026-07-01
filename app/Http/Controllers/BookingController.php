@@ -7,6 +7,7 @@ use App\Models\Booking;
 use App\Models\Petugas;
 use App\Models\Layanan;
 use App\Models\Rating;
+use App\Models\KategoriBooking;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
 
@@ -17,7 +18,15 @@ class BookingController extends Controller
     public function create()
     {
         $layanans = Layanan::all();
-        return view('booking', compact('layanans'));
+        $kategoriBookings = KategoriBooking::all();
+
+        return view(
+            'booking',
+            compact(
+                'layanans',
+                'kategoriBookings'
+            )
+        );
     }
     
     // ambil slot yang sudah dibooking
@@ -38,6 +47,7 @@ class BookingController extends Controller
             'nomor_hp' => 'required',
             'instansi' => 'required|string|max:255',
             'layanan_id' => 'required|exists:layanans,id',
+            'kategori_booking_id' => 'required|exists:kategori_bookings,id',
             'tanggal' => 'required|date',
             'jam' => 'required'
         ]);
@@ -65,6 +75,7 @@ class BookingController extends Controller
             'nomor_hp' => $request->nomor_hp,
             'instansi' => $request->instansi,
             'layanan_id' => $request->layanan_id,
+            'kategori_booking_id' => $request->kategori_booking_id,
             'tanggal' => $request->tanggal,
             'jam' => $request->jam,
             'status' => 'pending'
@@ -79,6 +90,16 @@ class BookingController extends Controller
     {
         $bookings = Booking::with('layanan','petugas')->latest()->get();
         return view('admin.dashboard', compact('bookings'));
+    }
+
+    public function getBookedSlots(Request $request)
+    {
+        $booked = Booking::where('layanan_id', $request->layanan_id)
+            ->where('tanggal', $request->tanggal)
+            ->where('status', '!=', 'cancelled') // booking yang dibatalkan tidak memblokir slot
+            ->pluck('jam');
+
+        return response()->json($booked);
     }
 
     public function confirm(Request $request, $id)

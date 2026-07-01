@@ -79,7 +79,13 @@
                             <td>{{ $booking->nomor_hp }}</td>
 
                             {{-- LAYANAN --}}
-                            <td>{{ $booking->layanan->nama ?? '-' }}</td>
+                            <td>
+                                <strong>{{ $booking->layanan->nama ?? '-' }}</strong>
+                                <br>
+                                <small style="color:#64748b">
+                                    {{ $booking->kategoriBooking->nama ?? '-' }}
+                                </small>
+                            </td>
 
                             {{-- PETUGAS --}}
                             <td>

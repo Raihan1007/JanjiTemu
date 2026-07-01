@@ -6,7 +6,6 @@
             <p>Sistem pemesanan jadwal kunjungan resmi untuk konsultasi lelang, pengelolaan aset negara, dan piutang negara.</p>
             <div class="btn-group">
                 <a href="{{ route('booking.index') }}" class="btn btn-filled">Buat Janji Sekarang</a>
-                <a href="#" class="btn btn-outline">Lihat Prosedur</a>
             </div>  
         </div>
         <div class="hero-image">
